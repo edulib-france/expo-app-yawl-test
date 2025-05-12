@@ -2,11 +2,14 @@ import {
   NavigationContainer,
   NavigationContainerRef,
 } from "@react-navigation/native";
-import { createStackNavigator } from "@react-navigation/stack";
+import {
+  createStackNavigator,
+  StackScreenProps,
+} from "@react-navigation/stack";
 import { useRef } from "react";
 import { Button, Text, View } from "react-native";
 
-function HomeScreen({ navigation }: { navigation: any }) {
+function HomeScreen({ navigation }: StackScreenProps<any>) {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Button
@@ -28,9 +31,17 @@ const Stack = createStackNavigator();
 
 function App() {
   const navigationRef = useRef<NavigationContainerRef>(null);
+  const routeNameRef = useRef<string | undefined>(undefined);
   return (
     <NavigationContainer
       ref={navigationRef}
+      onReady={() => {
+        routeNameRef.current = navigationRef.current?.getCurrentRoute()?.name;
+        console.log(
+          "🚀 ===> ~ App.tsx:40 ~ App ~ routeNameRef.current:",
+          navigationRef.current?.getCurrentRoute()
+        );
+      }}
       onStateChange={async () => {
         const rt = navigationRef.current?.getCurrentRoute();
         console.log("🚀 ===> ~ onStateChange:", rt);
