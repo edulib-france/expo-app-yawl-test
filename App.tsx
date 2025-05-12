@@ -1,3 +1,4 @@
+import Yawl from "@edulib-france/expo-yawl";
 import {
   DocumentTitleOptions,
   LinkingOptions,
@@ -10,8 +11,9 @@ import {
   createStackNavigator,
   StackScreenProps,
 } from "@react-navigation/stack";
-import { useRef } from "react";
+import { createRef, useEffect, useRef, useState } from "react";
 import { Button, Text, View } from "react-native";
+import { useYawlReactNavigation } from "@edulib-france/expo-yawl-react-navigation-plugin";
 
 function HomeScreen({ navigation }: StackScreenProps<any>) {
   return (
@@ -27,28 +29,46 @@ function DetailScreen() {
   return (
     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
       <Text>Details Screen</Text>
+      <Button title="Track" onPress={() => yawl.track({ name: "test" })} />
     </View>
   );
 }
 
 const Stack = createStackNavigator();
 
+const yawl = new Yawl({
+  apiKey: "cda712a73aff22114b6f62871697ea15",
+  env: "staging",
+});
 function App() {
   const navigationRef = useRef<NavigationContainerRef>(null);
   const routeNameRef = useRef<string | undefined>(undefined);
+  const [yawlReady, setYawlReady] = useState(false);
+  // @ts-ignore
+  const { onReady, onStateChange } = useYawlReactNavigation(yawl);
+  useEffect(() => {
+    yawl.init().then(() => {
+      setYawlReady(true);
+    });
+  }, []);
+  console.log("🚀 ===> ~ App.tsx:54 ~ App ~ yawlReady:", yawlReady);
+  if (!yawlReady) {
+    console.log("🚀 ===> ~ App.tsx:55 ~ App ~ yawlReady:", yawlReady);
+    return <Text>Loading...</Text>;
+  }
+
   return (
     <NavigationContainer
       ref={navigationRef}
       onReady={() => {
-        routeNameRef.current = navigationRef.current?.getCurrentRoute()?.name;
-        console.log(
-          "🚀 ===> ~ App.tsx:40 ~ App ~ routeNameRef.current:",
-          navigationRef.current?.getCurrentRoute()
-        );
+        // @ts-ignore
+        onReady(navigationRef);
       }}
       onStateChange={async () => {
-        const rt = navigationRef.current?.getCurrentRoute();
-        console.log("🚀 ===> ~ onStateChange:", rt);
+        // @ts-ignore
+        onStateChange(navigationRef);
+        // const rt = navigationRef.current?.getCurrentRoute();
+        // console.log("🚀 ===> ~ onStateChange:", rt);
       }}
     >
       <Stack.Navigator>

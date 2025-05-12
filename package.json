@@ -9,6 +9,8 @@
     "web": "expo start --web"
   },
   "dependencies": {
+    "@edulib-france/expo-yawl": "^0.0.3",
+    "@edulib-france/expo-yawl-react-navigation-plugin": "file:../expo-yawl-react-navigation-plugin/edulib-france-expo-yawl-react-navigation-plugin-0.1.0.tgz",
     "@react-navigation/stack": "^5.14.9",
     "expo": "~51.0.28",
     "expo-status-bar": "~1.12.1",
