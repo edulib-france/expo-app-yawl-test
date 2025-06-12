@@ -8,6 +8,11 @@
 - :warning: n'oubliez pas de renseigner votre clé-API lors de l'intanciation de `Yawl`
 
 ## versions d'expo
+
 - v51 https://github.com/edulib-france/expo-app-yawl-test/tree/v51
 - v52 https://github.com/edulib-france/expo-app-yawl-test/tree/v52
 - TODO: v53 https://github.com/edulib-france/expo-app-yawl-test/tree/v53
+
+## with yarn package manager
+
+- with-yarn https://github.com/edulib-france/expo-app-yawl-test/tree/with-yarn
