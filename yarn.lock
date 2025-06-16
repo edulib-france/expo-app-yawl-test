@@ -1253,9 +1253,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@edulib-france/expo-yawl@file:/Users/yaya/Desktop/Edulib-Dev/expo-yawl/edulib-france-expo-yawl-0.0.5.tgz::locator=expo-test%40workspace%3A.":
-  version: 0.0.5
-  resolution: "@edulib-france/expo-yawl@file:/Users/yaya/Desktop/Edulib-Dev/expo-yawl/edulib-france-expo-yawl-0.0.5.tgz#/Users/yaya/Desktop/Edulib-Dev/expo-yawl/edulib-france-expo-yawl-0.0.5.tgz::hash=7fdf26&locator=expo-test%40workspace%3A."
+"@edulib-france/expo-yawl@npm:^0.0.6":
+  version: 0.0.6
+  resolution: "@edulib-france/expo-yawl@npm:0.0.6"
   dependencies:
     "@react-native-async-storage/async-storage": "npm:1.23.1"
     expo: "npm:~52.0.46"
@@ -1269,7 +1269,7 @@ __metadata:
     expo: "*"
     react: "*"
     react-native: "*"
-  checksum: 10c0/a9909a857497e04f52c61d582daf2d5f426f4e37d35421f61145cf3616533afc383e785b4303356710dc36743f83ee090675e0d0664e25eafce13e1e3079c5b9
+  checksum: 10c0/56dee5dd9af1bada849f4fe0a1c7b2206ebb24b7f2eaabb6fa5269e34b3a49cb597ad6fb7c17360a4b31805835d5a34e6a7de6cd4b4cb2811fd3f844d8ae2cf8
   languageName: node
   linkType: hard
 
@@ -5891,7 +5891,7 @@ __metadata:
   resolution: "expo-test@workspace:."
   dependencies:
     "@babel/core": "npm:^7.20.0"
-    "@edulib-france/expo-yawl": /Users/yaya/Desktop/Edulib-Dev/expo-yawl/edulib-france-expo-yawl-0.0.5.tgz
+    "@edulib-france/expo-yawl": "npm:^0.0.6"
     "@expo/vector-icons": "npm:^14.0.2"
     "@react-native-async-storage/async-storage": "npm:1.23.1"
     "@react-navigation/native": "npm:^6.0.2"
